@@ -24,7 +24,7 @@ kexperimento  <- "CA7050"
 
 #copio si hace falta el dataset
 
-setwd("~/buckets/b1/")
+setwd("C:/_MCD/Labo1/code")  #Establezco el Working Directory
 
 #cargo el dataset
 dataset  <- fread( kdataset )   #donde entreno

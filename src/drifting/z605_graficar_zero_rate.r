@@ -19,7 +19,7 @@ require("data.table")
 
 #copio si hace falta el dataset
 
-setwd("~/buckets/b1/")
+setwd("C:/_MCD/Labo1/code")  #Establezco el Working Directory
 
 #cargo el dataset
 dataset  <- fread("./datasets/competencia2_2022.csv.gz")   #donde entreno

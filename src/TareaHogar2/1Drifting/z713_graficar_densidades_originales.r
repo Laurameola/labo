@@ -73,7 +73,7 @@ graficar_campo  <- function( campo, periodos_analisis )
 #------------------------------------------------------------------------------
 #Aqui comienza el programa
 
-setwd("~/buckets/b1/")
+setwd("C:/_MCD/Labo1/code")  #Establezco el Working Directory
 
 #cargo el dataset donde voy a entrenar
 dataset  <- fread( kdataset )

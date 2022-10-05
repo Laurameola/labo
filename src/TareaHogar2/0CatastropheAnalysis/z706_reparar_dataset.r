@@ -14,7 +14,7 @@ require("data.table")
 kexperimento  <- "CA7060"
 kdataset  <- "./datasets/competencia2_2022.csv.gz"
 
-kmetodo  <- "MachineLearning"     #valores posibles  "MachineLearning"  "EstadisticaClasica"
+kmetodo  <- "EstadisticaClasica"     #valores posibles  "MachineLearning"  "EstadisticaClasica"
 # FIN Parametros del script
 
 
@@ -201,7 +201,7 @@ Corregir_MachineLearning  <- function( dataset )
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
 
-setwd( "~/buckets/b1/" )
+setwd("C:/_MCD/Labo1/code")  #Establezco el Working Directory
 
 #cargo el dataset
 dataset  <- fread( kdataset )

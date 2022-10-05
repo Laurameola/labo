@@ -26,7 +26,7 @@ particionar  <- function( data,  division, agrupa="",  campo="fold", start=1, se
 #------------------------------------------------------------------------------
 
 #Aqui se debe poner la carpeta de la materia de SU computadora local
-setwd("~/buckets/b1/")  #Establezco el Working Directory
+setwd("c:/_MCD/Labo1/code/")  #Establezco el Working Directory
 
 #cargo el dataset
 dataset  <- fread("./datasets/competencia1_2022.csv" )
@@ -42,10 +42,14 @@ particionar( dataset, division=c(1,1), agrupa="clase_ternaria", seed= 102191 )  
 modelo  <- rpart(formula=   "clase_ternaria ~ . -fold",
                  data=      dataset[ fold==1, ], #los datos donde voy a entrenar
                  xval=          0,
-                 cp=           -1,
-                 minsplit=    300,
-                 minbucket=    20,
-                 maxdepth=     11  )
+                 # cp=           -1,
+                 # minsplit=    300,
+                 # minbucket=    20,
+                 # maxdepth=     11  )
+                 cp= -0.5,
+                 minsplit=  900,
+                 minbucket= 440,
+                 maxdepth= 5  )
 
 
 #aplico el modelo a los datos de testing

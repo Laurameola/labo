@@ -8,7 +8,7 @@ require("rpart.plot")
 
 
 #Aqui se debe poner la carpeta de la materia de SU computadora local
-setwd("~/buckets/b1/")  #Establezco el Working Directory
+setwd("C:/_MCD/Labo1/code")  #Establezco el Working Directory
 
 #cargo el dataset de la competencia 2  , que tiene lo que paso en 202103
 dataset  <- fread("./datasets/competencia2_2022.csv.gz")  #donde entreno
