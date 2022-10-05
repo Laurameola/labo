@@ -14,7 +14,7 @@ require("data.table")
 kexperimento  <- "CA7060"
 kdataset  <- "./datasets/competencia2_2022.csv.gz"
 
-kmetodo  <- "EstadisticaClasica"     #valores posibles  "MachineLearning"  "EstadisticaClasica"
+kmetodo  <- "MachineLearning"     #valores posibles  "MachineLearning"  "EstadisticaClasica"
 # FIN Parametros del script
 
 
@@ -32,8 +32,8 @@ CorregirCampoMes  <- function( pcampo, pmeses )
 {
   tbl <- dataset[  ,  list( "v1" = shift( get(pcampo), 1, type="lag" ),
                             "v2" = shift( get(pcampo), 1, type="lead" )
-                         ), 
-                   by=numero_de_cliente ]
+  ), 
+  by=numero_de_cliente ]
   
   tbl[ , numero_de_cliente := NULL ]
   tbl[ , promedio := rowMeans( tbl,  na.rm=TRUE ) ]
@@ -60,11 +60,11 @@ Corregir_EstadisticaClasica  <- function( dataset )
   CorregirCampoMes( "ccajas_depositos", c(201801,202006) )
   CorregirCampoMes( "ccajas_extracciones", c(201801,202006) )
   CorregirCampoMes( "ccajas_otras", c(201801,202006) )
-
+  
   CorregirCampoMes( "ctarjeta_visa_debitos_automaticos", c(201904) )
   CorregirCampoMes( "mttarjeta_visa_debitos_automaticos", c(201904,201905) )
   CorregirCampoMes( "Visa_mfinanciacion_limite", c(201904) )
-
+  
   CorregirCampoMes( "mrentabilidad", c(201905, 201910, 202006) )
   CorregirCampoMes( "mrentabilidad_annual", c(201905, 201910, 202006) )
   CorregirCampoMes( "mcomisiones", c(201905, 201910, 202006) )
@@ -72,16 +72,16 @@ Corregir_EstadisticaClasica  <- function( dataset )
   CorregirCampoMes( "mactivos_margen", c(201905, 201910, 202006) )
   CorregirCampoMes( "ccomisiones_otras", c(201905, 201910, 202006) )
   CorregirCampoMes( "mcomisiones_otras", c(201905, 201910, 202006) )
-
+  
   CorregirCampoMes( "ctarjeta_visa_descuentos", c(201910) )
   CorregirCampoMes( "ctarjeta_master_descuentos", c(201910) )
   CorregirCampoMes( "mtarjeta_visa_descuentos", c(201910) )
   CorregirCampoMes( "mtarjeta_master_descuentos", c(201910) )
   CorregirCampoMes( "ccajeros_propios_descuentos", c(201910) )
   CorregirCampoMes( "mcajeros_propios_descuentos", c(201910) )
-
+  
   CorregirCampoMes( "cliente_vip", c(201911) )
-
+  
   CorregirCampoMes( "active_quarter", c(202006) )
   CorregirCampoMes( "mcuentas_saldo", c(202006) )
   CorregirCampoMes( "ctarjeta_debito_transacciones", c(202006) )
@@ -103,7 +103,7 @@ Corregir_EstadisticaClasica  <- function( dataset )
   CorregirCampoMes( "catm_trx_other", c(202006) )
   CorregirCampoMes( "matm_other", c(202006) )
   CorregirCampoMes( "cmobile_app_trx", c(202006) )
-
+  
 }
 #------------------------------------------------------------------------------
 
@@ -111,22 +111,22 @@ Corregir_MachineLearning  <- function( dataset )
 {
   gc()
   #acomodo los errores del dataset
-
+  
   dataset[ foto_mes==201901,  ctransferencias_recibidas  := NA ]
   dataset[ foto_mes==201901,  mtransferencias_recibidas  := NA ]
-
+  
   dataset[ foto_mes==201902,  ctransferencias_recibidas  := NA ]
   dataset[ foto_mes==201902,  mtransferencias_recibidas  := NA ]
-
+  
   dataset[ foto_mes==201903,  ctransferencias_recibidas  := NA ]
   dataset[ foto_mes==201903,  mtransferencias_recibidas  := NA ]
-
+  
   dataset[ foto_mes==201904,  ctransferencias_recibidas  := NA ]
   dataset[ foto_mes==201904,  mtransferencias_recibidas  := NA ]
   dataset[ foto_mes==201904,  ctarjeta_visa_debitos_automaticos  :=  NA ]
   dataset[ foto_mes==201904,  mttarjeta_visa_debitos_automaticos := NA ]
   dataset[ foto_mes==201904,  Visa_mfinanciacion_limite := NA ]
-
+  
   dataset[ foto_mes==201905,  ctransferencias_recibidas  := NA ]
   dataset[ foto_mes==201905,  mtransferencias_recibidas  := NA ]
   dataset[ foto_mes==201905,  mrentabilidad     := NA ]
@@ -137,7 +137,7 @@ Corregir_MachineLearning  <- function( dataset )
   dataset[ foto_mes==201905,  ctarjeta_visa_debitos_automaticos  := NA ]
   dataset[ foto_mes==201905,  ccomisiones_otras := NA ]
   dataset[ foto_mes==201905,  mcomisiones_otras := NA ]
-
+  
   dataset[ foto_mes==201910,  mpasivos_margen   := NA ]
   dataset[ foto_mes==201910,  mactivos_margen   := NA ]
   dataset[ foto_mes==201910,  ccomisiones_otras := NA ]
@@ -152,9 +152,9 @@ Corregir_MachineLearning  <- function( dataset )
   dataset[ foto_mes==201910,  mtarjeta_master_descuentos  := NA ]
   dataset[ foto_mes==201910,  ccajeros_propios_descuentos := NA ]
   dataset[ foto_mes==201910,  mcajeros_propios_descuentos := NA ]
-
+  
   dataset[ foto_mes==202001,  cliente_vip   := NA ]
-
+  
   dataset[ foto_mes==202006,  active_quarter   := NA ]
   dataset[ foto_mes==202006,  mrentabilidad   := NA ]
   dataset[ foto_mes==202006,  mrentabilidad_annual   := NA ]
@@ -195,13 +195,14 @@ Corregir_MachineLearning  <- function( dataset )
   dataset[ foto_mes==202006,  matm_other   := NA ]
   dataset[ foto_mes==202006,  ctrx_quarter   := NA ]
   dataset[ foto_mes==202006,  cmobile_app_trx   := NA ]
-
+  
 }
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
 
-setwd("C:/_MCD/Labo1/code")  #Establezco el Working Directory
+#setwd("C:/_MCD/Labo1/code")  #Establezco el Working Directory
+setwd("~/buckets/b1/")
 
 #cargo el dataset
 dataset  <- fread( kdataset )
@@ -222,7 +223,7 @@ setwd(paste0( "./exp/", kexperimento, "/"))   #Establezco el Working Directory D
 
 #corrijo los  < foto_mes, campo >  que fueron pisados con cero
 switch( 
-kmetodo,
+  kmetodo,
   "MachineLearning"     = Corregir_MachineLearning( dataset ),
   "EstadisticaClasica"  = Corregir_EstadisticaClasica( dataset ),
 )
