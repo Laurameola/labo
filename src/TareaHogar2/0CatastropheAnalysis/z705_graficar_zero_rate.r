@@ -14,7 +14,8 @@ gc()             #garbage collection
 require("data.table")
 
 #Parametros del script
-kdataset  <- "./datasets/competencia2_2022.csv.gz"
+#kdataset  <- "./datasets/competencia2_2022.csv.gz"
+kdataset  <- "./exp/CA7060/dataset.csv.gz"
 kexperimento  <- "CA7050"
 # FIN Parametros del script
 

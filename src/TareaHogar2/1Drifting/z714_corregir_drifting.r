@@ -13,12 +13,12 @@ require("data.table")
 
 
 #Parametros del script
-kexperimento  <- "DR7141"
+kexperimento  <- "DR7143"
 
 kexp_input  <- "CA7060"
 
 #valores posibles  "ninguno" "rank_simple" , "rank_cero_fijo" , "deflacion"
-kmetodo  <- "deflacion"
+kmetodo  <- "rank_simple"
 # FIN Parametros del script
 
 

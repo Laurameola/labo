@@ -13,7 +13,9 @@ require("scales")
 require("lightgbm")
 
 #Parametros del script
-kdataset  <- "./exp/CA7060/dataset.csv.gz"
+#kdataset  <- "./exp/CA7060/dataset.csv.gz"
+kdataset  <- "./exp/DR7141/dataset.csv.gz"
+
 kexperimento  <- "DR7130"
 # FIN Parametros del script
 
@@ -73,7 +75,9 @@ graficar_campo  <- function( campo, periodos_analisis )
 #------------------------------------------------------------------------------
 #Aqui comienza el programa
 
-setwd("C:/_MCD/Labo1/code")  #Establezco el Working Directory
+#setwd("C:/_MCD/Labo1/code")  #Establezco el Working Directory
+setwd("~/buckets/b1/")
+
 
 #cargo el dataset donde voy a entrenar
 dataset  <- fread( kdataset )
@@ -116,10 +120,14 @@ campos_ordenados  <-  setdiff(  campos_ordenados,  c( "foto_mes","clase_ternaria
 dataset[  , foto_mes := as.character( foto_mes ) ]
 
 
-periodos_analisis  <- c( 202101, 202102, 202103, 202105 )
+#periodos_analisis  <- c( 202101, 202102, 202103, 202104, 202105 )
+periodos_analisis  <- c( 202001,202002,202003,202004,202005,202006,202007,202008,202009,202010,202011,202012,202101, 202102, 202103, 202104, 202105 )
+
 GLOBAL_colores <-  viridis_pal()(length( periodos_analisis ) )
 
-pdf("densidades_orignales.pdf")
+#pdf("densidades_orignales.pdf")
+pdf("densidades_orignales_deflacion.pdf")
+
 
 for( campo in  campos_ordenados )
 {
@@ -130,3 +138,5 @@ for( campo in  campos_ordenados )
 
 dev.off()
 
+for(cam in campos_ordenados)
+cat("\"",cam, "\",")

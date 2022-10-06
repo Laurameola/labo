@@ -14,7 +14,7 @@ require("data.table")
 kexperimento  <- "CA7060"
 kdataset  <- "./datasets/competencia2_2022.csv.gz"
 
-kmetodo  <- "MachineLearning"     #valores posibles  "MachineLearning"  "EstadisticaClasica"
+kmetodo  <- "EstadisticaClasica"     #valores posibles  "MachineLearning"  "EstadisticaClasica"
 # FIN Parametros del script
 
 
@@ -235,3 +235,5 @@ fwrite( dataset,
         file=  "dataset.csv.gz",
         logical01= TRUE,
         sep= "," )
+
+dataset[numero_de_cliente %in% c(35293777),list(numero_de_cliente,foto_mes,chomebanking_transacciones)]
