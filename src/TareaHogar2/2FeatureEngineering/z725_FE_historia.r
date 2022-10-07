@@ -16,17 +16,14 @@ require("randomForest")  #solo se usa para imputar nulos
 
 require("lightgbm")
 
-
 #Parametros del script
-kexperimento <- "FE7250"
-
-kexp_input  <- "DR7140"
-
-klag1  <- TRUE
-klag2  <- FALSE
-kTendencias  <- FALSE
-kRandomForest  <- FALSE
-kCanaritosAsesinos  <- FALSE
+kexperimento <- "FE7252"
+kexp_input <- "DR7141"
+klag1 <- TRUE
+klag2 <- FALSE
+kTendencias <- FALSE
+kRandomForest <- FALSE
+kCanaritosAsesinos <- FALSE
 # FIN Parametros del script
 
 #------------------------------------------------------------------------------
