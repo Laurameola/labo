@@ -13,13 +13,12 @@ require("data.table")
 require("lightgbm")
 
 #Parametros del script
-kexperimento  <- "ZZ9412"
-kexp_input  <- "HT7412"
-
-kmodelos  <- 2
+kexperimento <- "ZZ7918"
+kexp_input <- "HT7418"
+kmodelos <- 2
 # FIN Parametros del script
 
-ksemilla  <- 102191
+ksemilla  <- 100019
 
 #------------------------------------------------------------------------------
 options(error = function() { 
